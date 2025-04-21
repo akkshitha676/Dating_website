@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<head>
+   <link rel="stylesheet" href="style.css"><!--links it to stylesheet responsible for styling--> 
+   <title>CS108 Dating : Find your match!!</title>
+   <link rel="icon" type="image/x-icon" href="heart_icon.png"><!--icon of the website-->
+</head>
+<body class="background_dating">
+    <h1 id="dating_h1">Find Your Match!!</h1>
+    <h3 id="dating_p">
+        <div class="contextbox_dating">
+        <form id="dating_form">
+        <label for="roll_number">IITB Roll Number:</label><br>
+        <input type="text" class="textbox_dating" id="roll_number" name="roll_number" placeholder=" Enter your roll number" required><br><br>
+        <label for="name">Name:</label>
+        <input type="text" class="textbox_dating" id="name" name="name" placeholder=" Enter your name" required><br><br>
+        <label for="year_of_study" >Year of Study:</label><br>
+        <input type="text" class="textbox_dating" id="year_of_study" name="year_of_study" placeholder=" Enter your year of study" required><br><br>
+        <label for="age" > Age:</label>
+        <input type="number" class="textbox_dating" id="age" name="age" placeholder=" Enter your age" required><br><br>
+        <label>Gender</label><br>
+        <input type="radio" class="radio_dating" id="male" name="gender" value="Male" required>
+        <label for="male" style="font-weight: 100;">Male</label>
+        <input type="radio" class="radio_dating" id="female" name="gender" value="Female">
+        <label for="female" style="font-weight: 100;">Female</label>
+        <input type="radio" class="radio_dating" id="other" name="gender" value="Other">
+        <label for="other" style="font-weight: 100;">Other</label><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" class="textbox_dating" id="email" name="email" placeholder="Enter your email" required><br><br>
+        <label>Interests:</label><br>
+        <input type="checkbox" class="checkbox_dating" id="traveling" name="interests" value="Traveling">
+        <label for="traveling" style="font-weight: 100;">Traveling</label>
+        <input type="checkbox" class="checkbox_dating" id="sports" name="interests" value="Sports">
+        <label for="sports" style="font-weight: 100;">Sports</label>
+        <input type="checkbox" class="checkbox_dating" id="movies" name="interests" value="Movies">
+        <label for="movies" style="font-weight: 100;">Movies</label>
+        <input type="checkbox" class="checkbox_dating" id="dance" name="interests" value="Dance">
+        <label for="dance" style="font-weight: 100;">Dance</label><br>
+        <input type="checkbox" class="checkbox_dating" id="music" name="interests" value="Music">
+        <label for="music" style="font-weight: 100;">Music</label>
+        <input type="checkbox" class="checkbox_dating" id="literature" name="interests" value="Literature">
+        <label for="literature" style="font-weight: 100;">Literature</label>
+        <input type="checkbox" class="checkbox_dating" id="technology" name="interests" value="Technology">
+        <label for="technology" style="font-weight: 100;">Technology</label>
+        <input type="checkbox" class="checkbox_dating" id="fashion" name="interests" value="Fashion">
+        <label for="fashion" style="font-weight: 100;">Fashion</label>
+        <input type="checkbox" class="checkbox_dating" id="art" name="interests" value="Art">
+        <label for="art" style="font-weight: 100;">Art</label><br><br>
+        <label>Hobbies</label><br>
+        <input type="checkbox" class="checkbox_dating" id="reading" name="hobbies" value="Reading">
+        <label for="reading" style="font-weight: 100;">Reading</label>
+        <input type="checkbox" class="checkbox_dating" id="cooking" name="hobbies" value="Cooking">
+        <label for="cooking" style="font-weight: 100;">Cooking</label>
+        <input type="checkbox" class="checkbox_dating" id="coding" name="hobbies" value="Coding">
+        <label for="coding" style="font-weight: 100;">Coding</label>
+        <input type="checkbox" class="checkbox_dating" id="gardening" name="hobbies" value="Gardening">
+        <label for="gardening" style="font-weight: 100;">Gardening</label><br>
+        <input type="checkbox" class="checkbox_dating" id="painting" name="hobbies" value="Painting">
+        <label for="painting" style="font-weight: 100;">Painting</label>
+        <input type="checkbox" class="checkbox_dating" id="watching" name="hobbies" value="Watching Youtube/Instagram">
+        <label for="watching" style="font-weight: 100;">Watching Youtube/Instagram</label><br>
+        <input type="checkbox" class="checkbox_dating" id="playing" name="hobbies" value="Playing">
+        <label for="playing" style="font-weight: 100;">Playing musical instruments</label>
+        <input type="checkbox" class="checkbox_dating" id="photography" name="hobbies" value="Photography">
+        <label for="photography" style="font-weight: 100;">Photography</label><br><br>
+        <input type="submit" class="find_match" value="Find Match!!🙈">
+        </form>
+        </div><br>
+        <a href="scroll_or_swipe.html"><button  class="scroll_dating">Scroll through profies!</button>
+        <a href="login.html"><button class="find_match">Log out!</button></a>
+    </h3>
+    <script>document.addEventListener('DOMContentLoaded', function () {
+    // Load the JSON data from students.json
+    fetch('students.json')
+        .then(response => response.json())
+        .then(data => {
+            // Function to handle form submission
+            function handleSubmit(event) {
+                event.preventDefault(); // Prevent form from submitting
+
+                const rollNumber = document.getElementById("roll_number").value;
+                const fullName = document.getElementById("name").value;
+                const age = document.getElementById("age").value;
+                const gender = document.querySelector('input[name="gender"]:checked').value;
+                const email = document.getElementById("email").value;
+
+                // Get selected interests
+                const interestCheckboxes = document.querySelectorAll('input[name="interests"]:checked');
+                const interests = Array.from(interestCheckboxes).map(checkbox => checkbox.value);
+
+                if(interests.length === 0){
+                    alert("Please select interests!");
+                    return;
+                }
+
+                // Get selected hobbies
+                const hobbyCheckboxes = document.querySelectorAll('input[name="hobbies"]:checked');
+                const hobbies = Array.from(hobbyCheckboxes).map(checkbox => checkbox.value);
+
+                if(hobbies.length === 0){
+                    alert("Please select hobbies!");
+                    return;
+                }
+
+                // Create the user object
+                const user = {
+                    rollNumber: rollNumber,
+                    fullName: fullName,
+                    age: age,
+                    gender: gender,
+                    email: email,
+                    interests: interests,
+                    hobbies: hobbies
+                };
+
+                console.log(user); // Output the user object to the console
+
+
+                // Find the right match
+                const match = findRightMatch(data, user);
+                console.log(match);
+
+                // Display the match
+                displayMatch(match);
+            };
+
+            // Function to find the right match
+            function findRightMatch(students, user) {
+                let bestMatch = null;
+                let maxCommonInterestsAndHobbies = 0;
+            
+                // Iterate through each student in the dataset
+                students.forEach(student => {
+                    // Skip the user
+                    if (student["IITB Roll Number"] === user.rollNumber) {
+                        return; // Skip this iteration
+                    }
+
+                    if(student.Gender === user.gender){
+                        return;
+                    }
+            
+                    // Calculate the number of common interests and hobbies between the user and the current student
+                    const commonInterests = user.interests.filter(interest => student.Interests.includes(interest)).length;
+                    const commonHobbies = user.hobbies.filter(hobby => student.Hobbies.includes(hobby)).length;
+                    const totalCommon = commonInterests + commonHobbies;
+            
+                    // Check if the current student is a better match than the previous best match
+                    if (totalCommon > maxCommonInterestsAndHobbies) {
+                        bestMatch = student;
+                        maxCommonInterestsAndHobbies = totalCommon;
+                    }
+                });
+            
+                return bestMatch;
+            };
+            
+            function displayMatch(match) {
+                if (match) {
+                    // Redirect to right.html with match's roll number as URL parameter
+                    window.location.href = `right.html?roll_number=${match["IITB Roll Number"]}`;
+                } else {
+                    // Display message if no match found
+                    alert('No match found!');
+                    window.location.href="right.html";
+                }
+            }
+
+            // Add submit event listener to the form
+            const form = document.getElementById('dating_form');
+            form.addEventListener('submit', handleSubmit);
+        })
+        .catch(error => console.error('Error loading JSON:', error));
+});
+</script>
+</body>
