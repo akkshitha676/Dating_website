@@ -1,0 +1,324 @@
+.background_login{
+    background-image:url(login_background.gif);
+    justify-content: center;
+    background-size: cover; /*adjusts to window size */
+    background-repeat: repeat; 
+    background-position: center;
+    height: 100vh;
+    width: 96.5vw;
+    text-align: center;
+}
+.text_center{
+    position: relative;
+    top: 20%;
+    bottom: 0%;
+}
+#login_h1{
+    font-style: italic;
+    color: #e83095;
+    text-align: center;
+}
+#login_h2{
+    color: #e83095;
+    text-align: center;
+    font-weight:bolder;
+}
+#login_p{
+    color: #e83095;
+    text-align: center;
+    font-weight: bold;
+}
+.text_box{
+    width: 250px;
+    height: 35px;
+    border-radius: 10px;
+    border-width: 0.25px;
+    outline: none;
+    padding: 2px;
+    box-shadow:0 0 5px rgb(227, 116, 179);
+}
+#login_btn{
+    text-align: center;
+    color:#f5f4f5;
+    background-color: #e83095;
+    border-color: #c36599;
+    font-style: italic;
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration:none;
+}
+#login_btn:hover{
+    background-color:#fc50ae;
+}
+.context_box{
+    background-color:rgba(239, 226, 236, 0.5) ;
+    padding: 5px 5px;
+    border: 1px ;
+    border-radius: 20px;
+    width: 300px;   
+    align-self:center;
+    margin: auto;
+    box-shadow: 0 0 5px rgb(169, 89, 135);
+}
+#forgot_pw{
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    color: #e83095;
+    font-style: italic;
+    cursor: pointer;
+}
+#forgot_pw:hover{
+    color: #f75db2;
+}
+.background_forgot{
+    background-image: url(forgot_pw.jpg);
+    justify-content: center;
+    background-size: cover; /*adjusts to window size*/
+    background-position: center;
+    height: 100vh;
+    width: 97vw;
+}
+#forgot_h1{
+    text-align: center;
+    font-style: itaic;
+    color: #df5262;
+    font-weight: 500;
+}
+.forgot_p{
+    text-align: center;
+    color: #df5262;
+    font-weight: 600;
+}
+.textbox_forgot{
+    width: 250px;
+    height: 35px;
+    border-radius: 10px;
+    border-width: 0.25px;
+    outline: none;
+    padding: 2px;
+    box-shadow: 0 0 5px rgb(215, 98, 125);
+}
+.submit_forgot{
+    text-align: center;
+    color: #f5f4f5;
+    background-color: #df5262;
+    border-color: #e56271;
+    padding:10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.submit_forgot:hover{
+    background-color: #ee5d6e;
+}
+.contextbox_forgot{
+    background-color: rgba(221, 137, 159, 0.5);
+    padding: 20px 5px;
+    border: 1px;
+    border-radius: 20px;
+    width: 300px;
+    align-self: center;
+    margin: auto;
+    box-shadow: 0 0 5px rgb(106, 53, 83);
+}
+#login_forgot{
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    color: #df5262;
+    font-style: italc;
+    font-size: medium;
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center;
+    align-self: center;
+    margin-left: 120px;
+}
+#login_forgot:hover{
+    color: #e56271;
+}
+.background_dating{
+    background-image: url(dating_background.jpg);
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+}
+#dating_h1{
+    text-align: center;
+    color:#e56271;
+    font-weight: 00;
+    font-style: italic;
+    font-size: 40px;
+}
+#dating_p{
+    text-align: center;
+    color:#e56271;
+}
+.textbox_dating{
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+    border-width: 0.1px;
+    box-shadow: 0 0 2px rgb(211, 65, 111);
+}
+.checkbox_dating{
+    box-shadow: 0 0 0.5px rgb(211, 65, 111);
+    cursor: pointer;
+}
+.radio_dating{
+    cursor: pointer;
+    box-shadow: 0 0 0.5px rgb(211, 65, 111);
+}
+.radio_dating input:checked ~ .checkmark{
+    background-color: #e56271;
+}
+.contextbox_dating{
+    width: 400px;
+    background-color: rgba(244, 235, 237, 0.5);
+    padding: 20px 20px;
+    border: 1px;
+    border-radius: 20px;
+    align-self: center;
+    margin: auto;
+    box-shadow: 0 0 5px rgb(212, 120, 141);
+}
+.find_match{
+    background-color: #e56271;
+    color: #f5f4f5;
+    border-radius: 10px;
+    width: 120px;
+    height: 40px;
+    border-color: #e0a0a7;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+.find_match:hover{
+    background-color: #fa7383;
+}
+.scroll_dating{
+    background-color: #e56271;
+    color:#f5f4f5;
+    border-radius: 10px;
+    margin-right: 180px;
+    width: 160px;
+    height: 40px;
+    border-color: #e0a0a7;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+.scroll_dating:hover{
+    background-color: #fa7383;
+}
+.background_scroll{
+    background-image: url(scroll.background.jpg);
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    align-items: center;
+}
+.profiles {
+    display: flex;
+    flex-direction: column;
+}
+.profile {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(238, 158, 173);
+    background-color: rgba(233, 115, 142, 0.5);
+    padding: 20px;
+    border-radius: 20px;
+}
+.profile img {
+    width: 250px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+.profile .details {
+    font-size:23px;
+}
+.details{
+    color: #ee5d6e;
+}
+.back_button{
+    background-color: #ee5d6e;
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+    color: #f5f4f5;
+    border-color: #e0a0a7;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    margin-left: 50%;
+}
+.background_right{
+    background-image: url("right2.gif");
+    background-size: cover;
+    justify-content: center;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.matchInfo{
+    text-align: center;
+}
+
+.matchInfo img{
+    width: 200px;
+    height: auto;
+    align-items: center;
+}
+#tryAgain{
+    background-color: #dd4991;
+    color: #f5f4f5;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    border-color:#dc74a6 ;
+}
+#tryAgain:hover{
+    background-color: #eb6ca9;
+}
+.match_found{
+    color:#dd4991;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 25px;
+}
+.match_p{
+    font-size: 25px;
+    
+    color: #dd4991;
+}
+#photo{
+    height: auto;
+    width: 300px;
+    border-radius: 10px;
+}
+.box{
+    background-color: rgba(233, 115, 142, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    width: 40%;
+    align-self: center;
+    margin: auto;
+}
+.match_details{
+    color:#dd4991;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 25px;
+}
