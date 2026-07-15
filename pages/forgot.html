@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="style.css"><!--links it to stylesheet responsible for styling-->
+<title>CS108 Dating : Forgot password</title>
+<link rel="icon" type="image/x-icon" href="heart_icon.png" > <!--icon of the website-->
+</head>
+<div class="text_center">
+    <body class="background_forgot">
+        <h1 id="forgot_h1">Forgot Password?</h1>
+        <div class="contextbox_forgot">
+            <form id="forgot_form">
+            <p  class="forgot_p">
+            <label for="username">Username:</label><br><br>
+            <input type="text" class="textbox_forgot" id="username" name="username" placeholder=" Enter your username" required><br><br>
+             <p class="forgot_p">
+            <button class="submit_forgot" type="submit" >Submit</button><br><br>
+            <div class="forgot_p" id="secret_question" ></div>
+            <div class="forgot_p" id="secret_answer"></div>
+            </form>
+            <a href="login.html"> <button id="login_forgot">Login</button> </a>
+             </p>
+            </p>
+        </div>
+        <script>document.getElementById("forgot_form").addEventListener("submit", function(event){
+            event.preventDefault(); // Prevent default form submission
+            
+            const username = document.getElementById("username").value;
+            fetch("login.json") // Path to JSON file
+                .then(response => response.json())
+                .then(data =>{
+                    if(user = data.find(u => u.username === username))
+        
+                     {
+                        document.getElementById("secret_question").innerHTML = user.secret_question;
+                        var lineBreak = document.createElement("br");
+                        document.getElementById("forgot_form").appendChild(lineBreak);
+                        Question_box(); 
+                    } 
+                    
+                    else {
+                        alert("Invalid username🥲");
+                    }
+                })
+                .catch(error => console.error("Error fetching users:", error));
+        });
+        
+        function Question_box(){
+            var box_input = document.createElement("input");
+            box_input.type = "text";
+            box_input.className = "textbox_forgot"; 
+            box_input.name = "secret_answer";
+            box_input.style.cssText = "align-self: center; margin-left: 20px;"; 
+            box_input.placeholder = "Enter your answer";
+            box_input.autocomplete = "off";
+            box_input.required = true;
+        
+            var verify_button = document.createElement("button");
+            verify_button.id = "verify";
+            verify_button.className = "submit_forgot";
+            verify_button.type = "button";
+            verify_button.style.marginLeft = "110px";
+            verify_button.textContent = "Verify";
+            document.getElementById("forgot_form").appendChild(box_input);
+            var lineBreak = document.createElement("br");
+            document.getElementById("forgot_form").appendChild(lineBreak);    
+            document.getElementById("forgot_form").appendChild(verify_button);
+            verify_button.addEventListener("click",function(){
+                verify_answer(box_input.value);
+            });
+        }
+        
+        function verify_answer(answer){
+            fetch("login.json") // Path to JSON file
+            .then(response => response.json())
+            .then(data => {
+                const user = data.find(u => u.secret_answer === answer);
+                if (user){
+                    document.getElementById("secret_answer").innerHTML = "<p>Your Password is: " + user.password + "</p>"; 
+                }
+                else{
+                    alert("Incorrect answer. Try again!");
+                }
+            })
+            .catch(error => console.error("Error fetching users:", error));
+        }
+        </script>
+    </body>
+</div>

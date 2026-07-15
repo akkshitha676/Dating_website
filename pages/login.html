@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css"><!--links it to stylesheet responsible for styling-->
+<title>CS108 Dating : Login</title>
+<link rel="icon" type="image/x-icon" href="heart_icon.png"><!--icon of the website-->
+</head>
+
+<div class="text_center">
+<body class="background_login">
+
+    <h1 id="login_h1">Looking for a date?👀</h1>
+
+    <div class="context_box">
+    <h3 id="login_h2"><b></b>Login</h3>
+
+    <h5 id="login_p">
+        <form id="login_form">
+        <label for="username">Username:</label><br><br>
+        <input type="text" class="text_box" id="username" name="username" placeholder=" Enter your username" required><br><br>
+        <label for="password">Password:</label><br><br>
+        <input type="password" class="text_box" id="password" name="password" placeholder=" Enter your password" required><br><br><br>
+        <button id="login_btn" type="submit" >Let's go!</button><br><br>
+        </form>
+       <a href="forgot.html"><button id="forgot_pw">Forgot password?</button></a>
+    </h5>
+
+    </div>
+    <script>document.getElementById("login_form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+    
+        fetch("login.json") // Path to your JSON file
+            .then(response => response.json())
+            .then(data => {
+                const user = data.find(u => u.username === username && u.password === password);
+                if (user) {
+                    window.location.href = "dating.html";
+                } else {
+                    alert("Invalid username or password🥲");
+                }
+            })
+            .catch(error => console.error("Error fetching users:", error));
+    });</script>
+</body>
+</div>
+</html>
